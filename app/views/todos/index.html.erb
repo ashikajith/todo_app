@@ -1,0 +1,7 @@
+<h2> Yout Todos </h2>
+<%= link_to "Create", new_todo_path %>
+<ul>
+	<% @todos.each do |t| %>
+		<li> <%= t.todo_item %> </li>
+	<%end%>	
+</ul>

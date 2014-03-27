@@ -1,0 +1,5 @@
+<%= form_for @todo, url{action:"update", method:"put"}do |f| -%>
+  <%= f.label :todo_string, "Todo Content" %>
+  <%= f.text_field :todo_string %>
+  <%= f.submit "Submit", :todo :disable_with => 'Submiting...' %>
+<% end -%>

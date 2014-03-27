@@ -1,0 +1,5 @@
+<%= form_for @todo, url:{action:"create"}, method:"post" do |f| -%>
+  <%= f.label :todo_item, "Todo Content" %>
+  <%= f.text_field :todo_item %>
+  <%= f.submit "Submit", :disable_with => 'Submiting...' %>
+<% end -%>
