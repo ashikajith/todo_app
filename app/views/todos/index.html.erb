@@ -1,7 +1,8 @@
 <h2> Your Todos </h2>
 <%= link_to "Create", new_todo_path, class:"btn" %>
-<ul>
+<ul class = "container">
 	<% @todos.each do |t| %>
-		<li id = "sortable"> <%= t.todo_item %> </li>
+		<li> <a href="#"> <%= t.todo_item %></a> </li>
 	<%end%>	
 </ul>
+
