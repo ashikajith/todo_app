@@ -1,10 +1,8 @@
 <h2> Your Todos </h2>
 <%= link_to "Create", new_todo_path, class:"btn" %>
-<ul>
+<ul id = "item_lists">
 	<% @todos.each do |t| %>
-	<div class = "item">
-		<div style = "float:left"> <li id ="list"> <a href="#"> <%= t.todo_item %> </a></div><div style = "float:left;position:related;"><%= link_to "edit", edit_todo_path(id:t.id) %></div> </li>
-		</div>
+		<li id = "item_<%= t.id %>"> <%= t.todo_item %></li>
 	<%end%>	
 </ul>
 
