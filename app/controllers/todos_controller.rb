@@ -49,12 +49,14 @@ class TodosController < ApplicationController
 	end
 
 	def sort
-		@todos = Todo.all
-		@todos.each do |todo|
-			# todo.position = params['item'].index(todo.id + 1)
-			p " ==================================="
-			puts params['item']
-			todo.update_attributes!(:position => (params['item'].index((todo.id + 1).to_s)))
+		# @todos = Todo.all
+		# @todos.each do |todo|
+		# 	# todo.position = params['item'].index(todo.id + 1)
+		# 	p " ==================================="
+		# 	puts params['item']
+		# 	todo.update_attributes!(:position => (params['item'].index((todo.id + 1).to_s)))
+		params['item'].each_with_index do |item, index|
+			Todo.update_all(['position=?', index + 1], ['id=?', item])
 		end
 		render :nothing => true	
 	end
