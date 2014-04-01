@@ -1,5 +1,7 @@
-<%= form_for @todo, url{action:"update", method:"put"}do |f| -%>
+<h2> Edit Todo</h2>
+<%= form_for @todo, url:{action:"update"}, method:"put" do |f| -%>
   <%= f.label :todo_string, "Todo Content" %>
-  <%= f.text_field :todo_string %>
-  <%= f.submit "Submit", :todo :disable_with => 'Submiting...' %>
+  <%= f.text_field :todo_item %>
+  <%= f.submit "Submit", :disable_with => 'Submiting...' %>
 <% end -%>
+<%= link_to "Cancel", todos_path %>
