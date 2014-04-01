@@ -1,7 +1,7 @@
 class TodosController < ApplicationController
 
 	def index
-		@todos = Todo.all
+		@todos = Todo.order('position ASC')
 	end
 
 	def new
@@ -46,5 +46,16 @@ class TodosController < ApplicationController
 			flash[:error] = @todo.errors.full_messages.to_sentence
 		end
 		redirect_to :index			
+	end
+
+	def sort
+		@todos = Todo.all
+		@todos.each do |todo|
+			# todo.position = params['item'].index(todo.id + 1)
+			p " ==================================="
+			puts params['item']
+			todo.update_attributes!(:position => (params['item'].index((todo.id + 1).to_s)))
+		end
+		render :nothing => true	
 	end
 end
